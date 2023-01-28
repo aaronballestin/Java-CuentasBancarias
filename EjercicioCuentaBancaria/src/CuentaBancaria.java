@@ -16,8 +16,6 @@ public class CuentaBancaria{
     public void setTitularCuenta(String p_strTitularCuenta){
        if(titularCorrecto(p_strTitularCuenta)){
         _strtitularCuenta = p_strTitularCuenta;
-       }else{
-        System.out.println("El titular de la cuenta es incorrecto");
        }
     }
 
@@ -28,8 +26,6 @@ public class CuentaBancaria{
     public void setIBAN(String p_strIBAN){
         if(IBANCorrecto(p_strIBAN)){
             _strIBAN = p_strIBAN;
-        }else{
-            System.out.println("El IBAN no es valido");
         }
     }
 

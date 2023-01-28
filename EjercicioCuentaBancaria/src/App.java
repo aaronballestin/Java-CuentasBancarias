@@ -3,17 +3,43 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        CuentaBancaria cuenta1 = new CuentaBancaria("Aarón Ballestín Fuertes",
-                "ES4712345678901234567890");
-        menu(cuenta1);
+        CuentaBancaria cuenta = crearCuenta();
+        menu(cuenta);
 
+    }
+
+    public static CuentaBancaria crearCuenta() {
+        Scanner teclado = new Scanner(System.in);
+        String nombre ="";
+        String IBAN="";
+        CuentaBancaria cuenta = new CuentaBancaria(nombre, IBAN);
+        boolean valido = false;
+
+        while(!valido){
+            System.out.println("Introduce el nombre y apellidos del titular de la cuenta:");
+            nombre = teclado.nextLine();
+            cuenta = new CuentaBancaria(nombre, IBAN);
+            if(cuenta.getTitularCuenta() != null){
+                valido = true;
+            }
+        }
+        valido = false;
+        while(!valido){
+            System.out.println("Introduce el IBAN del titular de la cuenta");
+            IBAN = teclado.nextLine();
+            cuenta = new CuentaBancaria(nombre, IBAN);
+            if(cuenta.getIBAN() != null){
+                valido = true;
+            }
+        }
+        return cuenta;
     }
 
     public static void menu(CuentaBancaria cuenta1) {
 
         int menu = 0;
         Scanner teclado = new Scanner(System.in);
-        
+
         while (menu != 8) {
             System.out.println("---MENÚ---");
             System.out.println("1. Imprimir datos de la cuenta");
